@@ -4,9 +4,11 @@ import { app } from '../app';
 
 let mongo: any;
 beforeAll(async () => {
-  process.env.jwt = 'majd';
+  process.env.JWT_SECRET = 'majd';
   mongo = new MongoMemoryServer();
-  const mongoUri = await mongo.getUri();
+  await mongo.start();
+  const mongoUri = mongo.getUri();
+  mongoose.set('strictQuery', true);
   await mongoose.connect(mongoUri);
 });
 
@@ -22,3 +24,8 @@ afterAll(async () => {
   await mongo.stop();
   await mongoose.connection.close();
 });
+
+// global.signin = async()=>{
+//   const email= 'test@test.com',
+//   const password='password',
+// }

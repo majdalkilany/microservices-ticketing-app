@@ -12,8 +12,6 @@ import { NotFoundError } from './errors/not-found-handler';
 const app = express();
 app.set('trust proxy', true);
 
-const PORT = 4000;
-
 app.use(json());
 app.use(
   cookieSession({

@@ -1,4 +1,3 @@
-
 apiVersion: skaffold/v4beta2
 kind: Config
 build:
@@ -8,6 +7,14 @@ build:
     sync:
       manual:
       - src: src/**/*.ts
+        dest: .
+    docker:
+      dockerfile: Dockerfile
+  - image: majdalkilany/client
+    context: client
+    sync:
+      manual:
+      - src: '**/*.js'
         dest: .
     docker:
       dockerfile: Dockerfile

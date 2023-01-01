@@ -7,11 +7,10 @@
     "test": "jest --watchAll --no-cash",
     "start": "ts-node-dev src/index.ts"
   },
-
-  "jest":{
-    "preset":"ts-jest",
+  "jest": {
+    "preset": "ts-jest",
     "testEnvironment": "node",
-    "setupFilesAfterEnv":[
+    "setupFilesAfterEnv": [
       "./src/test/setup.ts"
     ]
   },
@@ -19,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@majd-tickets/common": "^1.0.5",
     "@types/cookie-session": "^2.0.44",
     "@types/express": "^4.17.15",
     "@types/jsonwebtoken": "^8.5.9",

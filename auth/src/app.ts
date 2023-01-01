@@ -6,8 +6,8 @@ import { currentUserRouter } from './routes/current-user.routs';
 import { signUpRouter } from './routes/sign-up';
 import { signInRouter } from './routes/sign-in';
 import { signOutRouter } from './routes/sign-out';
-import { errorHandler } from './middleware/error-handler';
-import { NotFoundError } from './errors/not-found-handler';
+import { errorHandler } from '@majd-tickets/common';
+import { NotFoundError } from '@majd-tickets/common';
 
 const app = express();
 app.set('trust proxy', true);

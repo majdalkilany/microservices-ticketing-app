@@ -1,3 +1,3 @@
 export default () => {
-  return <h1>majd alkilany</h1>;
+  return <h1>majd </h1>;
 };

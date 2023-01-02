@@ -27,7 +27,7 @@ router.post(
       console.log('Wrong password Or Email', 'if user not exist');
       throw new BadRequestError('Wrong password Or Email');
     }
-
+    // user await to
     const passwordMatch = await Password.compare(
       existingUser.password,
       password

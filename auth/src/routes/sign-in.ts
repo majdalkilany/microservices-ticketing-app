@@ -14,20 +14,26 @@ router.post(
   '/api/users/signin',
   [
     body('email').isEmail().withMessage('Enter a valid email'),
-    body('password').trim(),
+    body('password').trim().notEmpty(),
   ],
   validateRequest,
   async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
     const existingUser = await User.findOne({ email });
+    console.log(existingUser);
 
     if (!existingUser) {
-      console.log('Wrong password Or Email ');
+      console.log('Wrong password Or Email', 'if user not exist');
       throw new BadRequestError('Wrong password Or Email');
     }
 
-    if (!Password.compare(existingUser.password, password)) {
+    const passwordMatch = await Password.compare(
+      existingUser.password,
+      password
+    );
+
+    if (!passwordMatch) {
       throw new BadRequestError('Wrong password Or Email');
     }
     // Generate JWT

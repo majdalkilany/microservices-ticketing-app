@@ -1,6 +1,6 @@
 import express from 'express';
-import { currentUser } from '../middleware/current-user.middleware';
-import { requireAuth } from '../middleware/require-auth';
+import { currentUser } from '@majd-tickets/common';
+import { requireAuth } from '@majd-tickets/common';
 const router = express.Router();
 
 router.get('/api/users/currentuser', currentUser, requireAuth, (req, res) => {

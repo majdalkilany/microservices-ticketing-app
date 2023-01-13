@@ -37,7 +37,7 @@ global.signin = () => {
   };
 
   // Create the JWT!
-  const token = jwt.sign(payload, process.env.JWT_KEY!);
+  const token = jwt.sign(payload, process.env.JWT_SECRET!);
 
   // Build session Object. { jwt: MY_JWT }
   const session = { jwt: token };
